@@ -20,9 +20,11 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+@if(ViewData["HideFooter"] == null){
+      <footer class="border-top footer text-muted">
         <p>FODUN - Fondo de Docentes Universidad Nacional - Derechos Reservedos © 2014 - Desarrollado por MarketingltSolutions S.A.S</p>
     </footer>
+}
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -1,22 +1,170 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 html {
   font-size: 14px;
+  height: 100%;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 16;
   }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
-html {
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  margin: 0;
+  flex: 1- 0 auto;
+}
+main{
+  flex: 1- 0 auto;
+}
+footer{
+  display: flex;
   position: relative;
-  min-height: 100%;
+  bottom:   20px;
+  justify-content: center;
+  height: 70px;
+  background-color: rgb(228, 28, 28);
+  position: relative;
+  bottom: 200px;
+ margin-top: auto;  
+  p{
+    color: white;
+    margin-top: 15px !important;
+  }
+}
+.container{
+  display: flex;
+  gap:50px;
+}
+.form{
+  width: 600px;
+  height: 300px;
 }
 
-body {
-  margin-bottom: 60px;
+.bubble{
+  border-radius: 5px;
+  background-color: rgb(210, 210, 210);
+  height: 25px;
+  margin-bottom: 25px;
+  p{
+    margin: 10px;
+  }
+}
+.form-group-Documento{
+  display: flex;
+  margin-bottom: 12px;
+  gap: 10px;
+  width: 250px;
+}
+.form-group-Password{
+  display: flex;
+  margin-left:35px;
+  gap: 10px;
+  width: 215px;
+}
+
+.bton{
+  display: flex;
+  border-radius: 15px;
+  margin-top: 12px;     /*Boton login (Aceptar)*/
+  width: 100px;
+  height: 25px;
+  align-items: center;
+}
+/*Inicio de teclado dinamico*/
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -170px;
+  cursor: pointer;
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+    margin-left: 170px;
+  
+}
+.btn {
+  margin: 5px;
+  width: 45px;
+  height: 30px;
+  font-size: 20px;
+}
+.btn:hover{
+  background-color: rgb(228,28,28);
+  color: rgb(228, 28, 28);
+}
+
+.limpiar{
+  width: 110px;
+  height: 35px;
+  border-radius: 25px;
+  background-color: rgb(228, 28, 28);
+  border: none;
+  color: white;
+}
+}
+.btn-primary {
+  background-color: rgb(228, 28, 28);
+  border-radius: 25px;
+  border: none;
+  color: white; 
+}
+
+/*Fin de teclado dinámico*/
+
+/*Acecptar / olvido su clave*/
+.links{
+  margin-left: 90px;
+  margin-top: 0;   
+}
+label{
+  font-size: 12px;
+  color: red;
+}
+span{
+  display: flex;
+  margin-bottom: 12px;
+  margin: 7px;
+}
+img{
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.img-sideBar{
+  width: 550px;
+  height: 100%;
+}
+.olvido{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  color: black;
+}
+.span{
+  display: flex;
+  margin-left: 180px;
+}
+.info-img{
+  width: 400px;
+  height: 200px;
+  position: relative;
+  top: -100px;
+}
+form{
+  height: 300px;
 }

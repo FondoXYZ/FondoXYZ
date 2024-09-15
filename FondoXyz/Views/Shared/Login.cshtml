@@ -29,19 +29,19 @@
                 </div>
                 <div class="buttons mb-100">
                     <div class="button-row">
-                        <button type="button" class="teclado-boton" data-value="8">8</button>
-                        <button type="button" class="teclado-boton" data-value="0">0</button>
-                        <button type="button" class="teclado-boton" data-value="7">7</button>
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="8">8</button>
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="0">0</button>
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="7">7</button>
                     </div>
                     <div class="button-row">
-                        <button type="button" class="teclado-boton" data-value="2">2</button>
-                        <button type="button" class="teclado-boton" data-value="4">4</button>
-                        <button type="button" class="teclado-boton" data-value="3">3</button>
-    
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="2">2</button>
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="4">4</button>
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="3">3</button>
+                    </div>
                     <div class="button-row">
-                        <button type="button" class="teclado-boton" data-value="5">5</button>
-                        <button type="button" class="teclado-boton" data-value="9">9</button>
-                        <button type="button" class="teclado-boton" data-value="1">1</button>
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="5">5</button>
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="9">9</button>
+                        <button type="button" class="teclado-boton btn btn-primary" data-value="1">1</button>
                     </div>
                     <div class="button-row">
                         <button type="button" class="teclado-boton btn btn-primary" data-value="6">6</button>
@@ -75,7 +75,7 @@ const clave = document.querySelectorAll('clave'); //valor clave // Recordar func
 
 //funcion para validar los digitos
 Tecladobtn.forEach(button => {
-    button.addEventListener('click', fucntion () {
+    button.addEventListener('click', function () {
         const value = this.getAttribute('data-value'),
         if(value ){
             if(Documento.value === '')

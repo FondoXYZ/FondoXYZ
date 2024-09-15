@@ -24,18 +24,17 @@ body {
   flex: 1- 0 auto;
 }
 main{
-  flex-grow: 1;
+  flex: 1- 0 auto;
 }
 footer{
   display: flex;
   position: relative;
-  bottom: 20px;
-  padding: 1em;
+  bottom:   20px;
   justify-content: center;
   height: 70px;
   background-color: rgb(228, 28, 28);
   position: relative;
-  bottom: 0;
+  bottom: 200px;
  margin-top: auto;  
   p{
     color: white;
@@ -122,6 +121,7 @@ footer{
   border: none;
   color: white; 
 }
+
 /*Fin de teclado dinámico*/
 
 /*Acecptar / olvido su clave*/
@@ -168,7 +168,7 @@ a:hover{
 form{
   height: 300px;
 }
-h2{
+/* h2{
   color:rgb(228, 28, 28);
 }
 .table{
@@ -184,4 +184,4 @@ td{
 th{
   padding: 10px;
   text-align: center;
-}
+} */

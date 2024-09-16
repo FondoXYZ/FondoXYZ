@@ -1,7 +1,100 @@
 @{
     ViewData["HideFooter"] = true;
 }
-<h2>Sedes Recreativas y Apartamentos</h2>@* @{
-    ViewData["HideFooter"] = true;
-}
-<h2>Sedes Recreativas y Apartamentos</h2> *@
+<h2>Sedes Recreativas y Apartamentos</h2>
+<div class="cardd">
+    <a asp-controller="Sedes" asp-action="Index" class="btn btn-danger">Sedes Recreativas y Apartamentos</a>
+    <a asp-controller="Fechas" asp-action="Fechas" class="btn btn-danger">Selecciones sus Fechas</a>
+</div>
+<div class="reserva-content">
+    <hr class="line-reserva">
+    <aside class="">
+        <p class="sub"> Mis Fechas</p>
+        <div class="form-group">
+            <div class="group">
+                <label for="" class="label">Fecha de Llegada: </label>
+                <input type="date" class="inputText">
+            </div>
+            <div class="group">
+                <label for="" class="label">Fecha de salida: </label>
+                <input type="date" class="inputText">
+            </div>
+            <div class="group-num">
+                <label for="" class="label">Noches: </label>
+                <input type="number" class="inputNum">
+            </div>
+            <div class="group-num">
+                <label for="" class="label">Personas: </label>
+                <input type="number" class="inputNum">
+            </div>
+            <div class="group-check">
+                <label for="" class="label">Servicio de <br> Lavanderia: </label>
+                <input type="checkbox" name="" id="">
+            </div>
+            <p>__________________________________________________________</p>
+            <p class="sub">Total Reserva</p>
+            <div class="group-habitaciones">
+                <label for="" class="label">Habitaciones: </label>
+                <input type="number" class="inputNum">
+            </div>
+            <div class="group">
+                <label for="" class="label">Días Ordinarios: </label>
+                <input type="number" class="inputNum">
+                <input type="text" class="inputText">
+            </div>
+            <div class="group">
+                <label for="" class="label">Días Especiales: </label>
+                <input type="number" class="inputNum">
+                <input type="text" class="inputText">
+            </div>
+            <div class="group-lavanderia">
+                <label for="" class="label">Lavanderia: </label>
+                <input type="text">
+            </div>
+            <div class="reservar">
+                <p class="valor">Valor Total: $000.0000</p>
+                <button type="submit" class="btn btn-danger">Reservar</button>
+            </div>
+            <div class="habitaciones">
+                <p class="sub">Habitaciones / Alojamientos</p>
+                <div class="table-content">
+                    <table class="table table-hover">
+                        <th>Detalles</th>
+                        <th>Habitacion / Alojamiento</th>
+                        <th>Capacidad</th>
+                        <th>Tarifa de Ordinario</th>
+                        <th>Tarifa día Especial</th>
+                        <th>Disponibilidad <br> Fecha Seleccionada</th>
+                        <th>Ver Calendario <br> Disponibilidad</th>
+                        <th>Reservar</th>
+                        <tbody>
+                            <tr>
+                                <td>🔎</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td>100.000</td>
+                                <td>120.000</td>
+                                <td>✓</td>
+                                <td>📅</td>
+                                <td><input type="checkbox" name="" id=""></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="sedeInfo">
+            <p class="sub">Sede Recreativa Villeta</p>
+            <div class="info d-flex">
+                <img src="~/Assets/Sedes/images.jpg" alt="" class="img-info">
+                <div class="side-left">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam temporibus <br>
+                        voluptatibus mollitia eum
+                        magnam modi ipsa nesciunt quis alias esse nemo, qui repellendus minus sequi aspernatur minima
+                        voluptatem. Tempora, nobis.</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>

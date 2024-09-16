@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,12 +14,7 @@
             <img src="~/Assets/nav-img.png" alt="">
             <div class="pages">
                 <a asp-action="Index" asp-controller="Sedes">Sedes Recreativas y Apartamentos</a>
-                <a asp-action="Fechas" asp-controller="Fechas"> Mis Reservas</a>
-                <a asp-action="" asp-controller="">Actualizar Datos</a>
-                <a asp-action="" asp-controller="">Cerrar Sesión</a>
-                <div class="user">
-                    <p>Email del usuario</p>
-                </div>
+                <a asp-action="Login" asp-controller="Account">Ingreso y Registro</a>
             </div>
         </nav>
     </header>
@@ -34,6 +29,7 @@
         <p>FODUN - Fondo de Docentes Universidad Nacional - Derechos Reservedos © 2014 - Desarrollado por MarketingltSolutions S.A.S</p>
     </footer>
 }
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

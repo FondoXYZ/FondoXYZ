@@ -19,24 +19,20 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  height: 100%; 
+  min-height: 100vh; 
   margin: 0;
   flex: 1- 0 auto;
 }
 main{
-  flex-grow: 1;
+  flex: 1;
 }
 footer{
   display: flex;
-  position: relative;
-  bottom: 20px;
-  padding: 1em;
   justify-content: center;
-  height: 70px;
+  align-items: center;
   background-color: rgb(228, 28, 28);
-  position: relative;
-  bottom: 0;
- margin-top: auto;  
+  height: 70px;
+  margin-top: auto;  
   p{
     color: white;
     margin-top: 15px !important;
@@ -122,6 +118,7 @@ footer{
   border: none;
   color: white; 
 }
+
 /*Fin de teclado dinámico*/
 
 /*Acecptar / olvido su clave*/
@@ -185,3 +182,102 @@ th{
   padding: 10px;
   text-align: center;
 }
+nav{
+  background-color: rgb(145, 144, 144);
+  display: flex;
+  flex-direction: column;
+}
+.pages{
+  background-color: rgb(145, 144, 144);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  a{
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+  }
+}
+.user{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  text-align: center; 
+  margin-top: 7px;
+}
+.cardd{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  gap: 12px;
+}
+.line-reserva{
+  color: rgb(228, 28, 28);
+  margin-top: -1px; 
+  border: 2px solid rgb(228, 28, 28);
+}
+.label{
+  color: black;
+}
+.group{
+  display: flex;
+  gap: 4px;
+}
+.reservar{
+  margin-left: 36px;
+  color: rgb(228, 28, 28);
+  font-size: 22px;
+}
+.sub{
+  color: rgb(228, 28, 28);
+  font-size: 22px;
+  margin-left: 24px;
+}
+.inputNum{
+  width: 40px;
+  color: white;
+  text-align: center;
+  margin: 2px;
+}
+.inputText{
+  width: 150px;
+  color: white;
+  margin: 2px;
+}
+.group-num{
+  margin-left: 40px;
+}
+.group-lavanderia{
+  margin-left: 29px;
+}
+.group-habitaciones{
+  margin-left: 12px;
+}
+.group-check{
+  margin-left: 36px;
+}
+.form-group{
+  margin-left: 36px;
+}
+aside{
+  margin-top: -12px;
+}
+.reserva-content{
+  background-color: rgb(188, 188, 188); 
+}
+.img-info{
+  width: 400px;
+  height: 300px;
+}
+.sedeInfo{
+  flex-direction: row;
+  position: relative;
+  margin-left: 400px;
+  margin-top: -630px;
+  gap: 24px;
+}
+.form-group{
+  background-color: rgb(188, 188, 188);
+}
+

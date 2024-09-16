@@ -14,7 +14,7 @@ namespace FondoXYZ.Models{
         public string Password {get; set; }
         [Required(ErrorMessage = "Por favor confirme su contraseña")]
         [DataType(DataType.Password)]
-        [Display(Name = "Contraseña")]
+        [Display(Name = "Confirmar Contraseña")]
         [Compare("Password", ErrorMessage = "Las contraseñas deben ser iguales")]
         [StringLength(4, MinimumLength = 4, ErrorMessage = "Las contraseñas deben coincidir")]
         public string ConfirmPassword {get; set; }
@@ -22,7 +22,7 @@ namespace FondoXYZ.Models{
         [Display(Name = "Nombre completo")]
         public string FullName {get; set; }
         [Required(ErrorMessage = "Número de documento es requerido")]
-        [Display(Name = "Número de documento")]
+        [Display(Name = "Nro de documento")]
         public string NumberDocument {get; set; }
         [Required(ErrorMessage = "La fecha de nacimiento es requerida")]
         [Display(Name = "Fecha de nacimiento")]

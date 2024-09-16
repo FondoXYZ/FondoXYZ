@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using FondoXYZ.Mdoels
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<User> SignInManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -16,9 +19,9 @@
                 <a asp-action="Index" asp-controller="Sedes">Sedes Recreativas y Apartamentos</a>
                 <a asp-action="Fechas" asp-controller="Fechas"> Mis Reservas</a>
                 <a asp-action="" asp-controller="">Actualizar Datos</a>
-                <a asp-action="" asp-controller="">Cerrar Sesión</a>
+                <a asp-action="Logout" asp-controller="Account">Cerrar Sesión</a>
                 <div class="user">
-                    <p>Email del usuario</p>
+                    <p>@User.Identity.Name</p>
                 </div>
             </div>
         </nav>

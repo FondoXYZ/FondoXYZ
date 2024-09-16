@@ -163,7 +163,8 @@ a:hover{
   top: -100px;
 }
 form{
-  height: 300px;
+  /* height: 300px; */
+  height: auto;
 }
 h2{
   color:rgb(228, 28, 28);
@@ -280,4 +281,69 @@ aside{
 .form-group{
   background-color: rgb(188, 188, 188);
 }
+.form-register{
+  background-color: rgb(203, 203, 203);
+}
+.fullname{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+.NDocument{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+.birth{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+.password{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+.emial{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+.confirmPassword{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
 
+}
+.tag{
+  border: 1px solid rgb(255, 142, 142);
+  width: 150px;
+  background-color: rgb(228, 28, 28);
+  color: white;
+  font-size: 17px;
+  margin-bottom: 0px;
+  justify-content: center;
+}
+.formDocument{
+  margin-left: 58px;
+}
+.fullname{
+  margin-left: 58px;
+}
+.fecha{
+  margin-left: 58px;
+}
+.email{
+  margin-left: 58px;
+}
+.password{
+  margin-left: 30px; 
+}
+.confirmPassword{
+  margin-left: 30px; 
+}
+.enviar{
+  display: flex;
+  justify-content: center;
+  gap:12px;
+}

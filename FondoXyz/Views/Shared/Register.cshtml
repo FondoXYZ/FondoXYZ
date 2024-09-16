@@ -1,0 +1,54 @@
+@model FondoXYZ.Models.RegisterViewModel
+@{
+    ViewData["HideFooter"] = "true";
+    Layout = "_LayoutLogin.cshtml";
+}
+    <p class="sub">Regsitro Nuevo Usuario</p>
+
+<div class="content">
+    <span class="tag">Registro Usuario</span>
+    <form asp-action="Register" method="post" class="form-register">
+        <div class="formDocument">
+            <label asp-for="NumberDocument" class="label"></label>
+            <input asp-for="NumberDocument" class="NDocument" id="documento" name="documento" required>
+            <span asp-validation-for="NumberDocument"></span>
+        </div>
+
+        <div class="fullname d-flex flex-column">
+            <label asp-for="FullName" class="label"></label>
+            <input asp-for="FullName">
+            <span asp-validation-for="FullName"></span>
+        </div>
+
+        <div class="fecha">
+            <label asp-for="BirthDate" class="label"></label>
+            <input asp-for="BirthDate" class="birth" type="date">
+            <span asp-validation-for="BirthDate"></span>
+        </div>
+
+        <div class="email">
+            <label asp-for="Email" class="label"></label>
+            <input asp-for="Email" class="emial">
+            <span  asp-validation-for="Email"></span>
+        </div>
+
+        <div class="password">
+            <label asp-for="Password" class="label"></label>
+            <input asp-for="Password" class="password">
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <div class="confirmPassword">
+            <label asp-for="ConfirmPassword" class="label"></label>
+            <input asp-for="ConfirmPassword" class="confirmPassword">
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+      <div class="enviar">
+            <button type="submit" class="btn btn-light">📩Enviar</button>
+            <button type="submit" class="btn btn-light">❌Cancelar</button>
+      </div>
+    </form>
+</div>
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")  @*Esto es para mostrar la validación de las vistas*@
+}

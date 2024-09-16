@@ -1,3 +1,4 @@
+using FondosXYZ.Services;
 using FondoXyz.Data;
 using FondoXYZ.Mdoels;
 using Microsoft.AspNetCore.Identity;
@@ -14,7 +15,7 @@ builder.Services.AddDbContext<dbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //Add the services of identity
-builder.Services.AddIdentity<User , IdentityRole>( //Yo editare el modelo user, por eso es solo user
+builder.Services.AddIdentity<User , IdentityRole>( //Yo editare la clase de el IdentityUser, y al editarla cambia a modelo user, por eso es solo user
     options => {
         options.Password.RequireDigit = true;
         options.Password.RequireLowercase = false;
@@ -25,6 +26,14 @@ builder.Services.AddIdentity<User , IdentityRole>( //Yo editare el modelo user, 
 )
 .AddEntityFrameworkStores<dbContext>()
 .AddDefaultTokenProviders(); // we save the token in the context
+//Servicio de newtonsoft 
+builder.Services.AddControllers()
+        .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+
+//Add the scooped of the folder services
+builder.Services.AddScoped<ISedesRepository, SedesRepository>();
 
 var app = builder.Build();
 
@@ -41,10 +50,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Sedes}/{action=Index}/{id?}");
+    pattern: "{controller=Register}/{action=Register}/{id?}");
 
 app.Run();

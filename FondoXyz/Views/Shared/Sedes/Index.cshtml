@@ -1,5 +1,6 @@
 @{
-    ViewData["HideFooter"] = true;
+    ViewData["Title"] = "Sedes";
+    Layout = "./_LayoutLogin.cshtml";
 }
 <h2 class="mt-9">Sedes Recreativas y Apartamentos</h2>
     <div class="nav">
@@ -22,7 +23,7 @@
                 <td>Sede Recreativa</td>
                 <td>Villeta</td>
                 <td>
-                    <a asp-action="" asp-controller="" class="btn btn-danger">Seleccionar</a>
+                    <a asp-controller="Fechas" asp-action="Fechas" class="btn btn-danger">Seleccionar</a>
                 </td>
             </tr>
             <tr>
@@ -32,7 +33,7 @@
                 <td>Sede Recreativa</td>
                 <td>Villeta</td>
                 <td>
-                    <a asp-action="" asp-controller="" class="btn btn-danger">Seleccionar</a>
+                    <a asp-action="Fechas" asp-controller="Fechas" class="btn btn-danger">Seleccionar</a>
                 </td>
             </tr>
                <tr>
@@ -58,6 +59,6 @@
         </tbody>
     </table>
 </div>
-<footer class="border-top footer text-muted">
+@* <footer class="border-top footer text-muted">
     <p>FODUN - Fondo de Docentes Universidad Nacional - Derechos Reservedos © 2014 - Desarrollado por MarketingltSolutions S.A.S</p>
-</footer>
+</footer> *@

@@ -1,5 +1,7 @@
+@model FondoXYZ.Models.LoginViewModel
 @{
     ViewData["Title"] = "Login";
+    Layout = "_LayoutLogin.cshtml";
 }
 <div class="container">
     <div>
@@ -13,14 +15,16 @@
             Digite su Clave a través del teclado dinamicó que <br>
             se encuentra en la pantalla.
         </span>
-        <form method="post">
-                <div class="form-group-Documento">
-                    <label for="">Nro Documento:</label>
-                    <input type="email" class="form-control" id="numeroDocumento" placeholder="Enter email">
-                </div>
+        <form asp-action="Login" method="post" class="formulario">
+             <div class="form-group-Documento">
+                <label asp-for="NumberDocument"></label>
+                <input asp-for="NumberDocument" class="form-control"/>
+                <span asp-validation-for="NumberDocument" class="text-danger"></span>
+            </div>
                 <div class="form-group-Password">
-                    <label for="InputPassword">Clave:</label>
-                    <input type="password" class="form-control" id="clave" placeholder="Enter password">
+                    <label asp-for="Password">Clave:</label>
+                    <input asp-for="Password" class="form-control" id="clave">
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="links">
                     <button type="submit" id="aceptar" class="bton btn btn-danger">Aceptar</button>
@@ -56,43 +60,38 @@
                         <button type="button" class="btn btn-primary" data-value=""></button>
                     </div>
                 </div>
-                @* <div class="info-img">
-                    <img src="~/Assets/info-img.png" alt="">
-                </div> *@
         </form>
     </div>
 </div>
 
 <script src="~/js/ButtonsValue.js"></script>
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
 
-@*Prueba!!*@
 <script>
-    //capturamos los valores de los inputs:
 document.addEventListener("DOMContentLoaded", function() {
-    const Tecladobtn = document.querySelectorAll('.teclado-boton'); // valor de los botones
-const Documento =document.querySelectorAll('.numeroDocumento');  //valor del documento
-const clave = document.querySelectorAll('clave'); //valor clave // Recordar función o usar Notaciones de datos para el requerimiento de 4 digitos
+    const tecladobtn = document.querySelectorAll('.teclado-boton'); // capturamos el valor de los botones
+    const clave = document.querySelector('input[name="Password"]'); // capturamos el valor clave
 
-//funcion para validar los digitos
-Tecladobtn.forEach(button => {
-    button.addEventListener('click', function () {
-        const value = this.getAttribute('data-value'),
-        if(value ){
-            if(Documento.value === '')
-            {
-                Documento.value += value;
-            } else {
-                clave.value += value;
+    // Funcion para validar los numero ingresados
+    tecladobtn.forEach(button => {
+        button.addEventListener('click', function () {
+            const value = this.getAttribute('data-value');
+            if (value) {
+                // Limita la longitud de la clave a 4 dígitos
+                if (clave.value.length < 4) {
+                    clave.value += value;
+                }
             }
-        }
+        });
+    });
+
+    //  funcion para limpiar los datos
+    document.getElementById('limpiar').addEventListener('click', function() {
+        clave.value = '';
     });
 });
-//Limpiamos los datos 
-document.getElementById('limpiar').addEventListener('click', fucntion (){
-    Documento.value = '';
-    clave.value = '';
-});
 
- 
-}
+
 </script>

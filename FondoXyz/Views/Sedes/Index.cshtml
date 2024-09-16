@@ -1,3 +1,4 @@
+@model List<FondosXYZ.Models.Sede>
 @{
     ViewData["HideFooter"] = true;
 }
@@ -15,46 +16,19 @@
         <th>Ubicación</th>
         <th>Seleccionar</th>
         <tbody>
+           @foreach (var sede in Model)
+           {
             <tr>
-                <td><img src="~/Assets/Sedes/images.jpg" alt="" class="w-90 h-100"></td>
-                <td>Sede Recreativa Villeta</td>
-                <td>Esta sede reacreativa se encuentra ubicada en el barrio San jorge, a poca distancia de la plaza central de villeta en la providencia del Gualiva, cundinamarca</td>
-                <td>Sede Recreativa</td>
-                <td>Villeta</td>
+                <td><img src="~/Assets/Sedes/images.jpg" alt="" class="w-90 h-200"></td>
+                <td>@sede.Name</td>
+                <td>@sede.Description</td>
+                <td>@sede.Type</td>
+                <td>@sede.Ubication</td>
                 <td>
-                    <a asp-controller="Fechas" asp-action="Fechas" class="btn btn-danger">Seleccionar</a>
+                    <a asp-action="Fechas" asp-controller="Fechas" class="btn btn-danger">Seleccionar</a>
                 </td>
             </tr>
-            <tr>
-                <td><img src="~/Assets/Sedes/images.jpg" alt="" class="w-90 h-100"></td>
-                <td>Sede Recreativa Villeta</td>
-                <td>Esta sede reacreativa se encuentra ubicada en el barrio San jorge, a poca distancia de la plaza central de villeta en la providencia del Gualiva, cundinamarca</td>
-                <td>Sede Recreativa</td>
-                <td>Villeta</td>
-                <td>
-                    <a asp-action="" asp-controller="" class="btn btn-danger">Seleccionar</a>
-                </td>
-            </tr>
-               <tr>
-                <td><img src="~/Assets/Sedes/images.jpg" alt="" class="w-90 h-100"></td>
-                <td>Sede Recreativa Villeta</td>
-                <td>Esta sede reacreativa se encuentra ubicada en el barrio San jorge, a poca distancia de la plaza central de villeta en la providencia del Gualiva, cundinamarca</td>
-                <td>Sede Recreativa</td>
-                <td>Villeta</td>
-                <td>
-                    <a asp-action="" asp-controller="" class="btn btn-danger">Seleccionar</a>
-                </td>
-            </tr>
-               <tr>
-                <td><img src="~/Assets/Sedes/images.jpg" alt="" class="w-90 h-100"></td>
-                <td>Sede Recreativa Villeta</td>
-                <td>Esta sede reacreativa se encuentra ubicada en el barrio San jorge, a poca distancia de la plaza central de villeta en la providencia del Gualiva, cundinamarca</td>
-                <td>Sede Recreativa</td>
-                <td>Villeta</td>
-                <td>
-                    <a asp-action="" asp-controller="" class="btn btn-danger">Seleccionar</a>
-                </td>
-            </tr>
+           }
         </tbody>
     </table>
 </div>

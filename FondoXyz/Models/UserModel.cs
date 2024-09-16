@@ -1,3 +1,5 @@
+using System.Reflection;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 
 namespace FondoXYZ.Mdoels{
@@ -5,6 +7,6 @@ namespace FondoXYZ.Mdoels{
         public string NumberDocument {get; set;}
         public string FullName {get; set; }
         public DateOnly DateBirth {get; set;}
-        public DateOnly DateRegistered {get; set;} //Fecha de registro
+        public DateOnly DateRegistered {get; set;} //Fecha de registro 
     }
 }

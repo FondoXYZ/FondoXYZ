@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace FondosXYZ.Models{
     public class Apartamento{
         public int Id {get; set; }
@@ -6,6 +8,7 @@ namespace FondosXYZ.Models{
         public int NumberRooms {get; set; }
         public int NumberAccoodation {get; set; } // Numero de alojamiento
         public string CapacityMaximum {get; set; }
+        [JsonIgnore]
         public int SedeId {get; set; }
         public Sede Sede {get; set; }
     }

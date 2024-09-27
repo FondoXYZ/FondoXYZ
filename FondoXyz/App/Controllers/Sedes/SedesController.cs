@@ -12,7 +12,7 @@ namespace FondoXYZ.Controllers{
         {
             _sedesRepository = sedesRepository;
         }
-         [Authorize] //este es el guardian
+        [Authorize] //este es el guardian
         public async Task <IActionResult> Index()
         {
             try{
@@ -35,7 +35,7 @@ namespace FondoXYZ.Controllers{
                 }
                 return View(sede);
 
-            }catch(Exception ex){
+            }catch(Exception){
                 return NotFound();
             }
         }

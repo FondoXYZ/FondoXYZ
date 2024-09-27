@@ -6,7 +6,7 @@ namespace FondoXYZ.Models{
     {
         [Required(ErrorMessage = "Numero de documento requerido")]
         [Display(Name ="Nro Documento:")]	
-        public string NumberDocument {get; set; }
+        public string DocumentNumber {get; set; }
 
         [Required(ErrorMessage = "Por favor ingrese la Clave")]
         [DataType(DataType.Password)]

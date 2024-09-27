@@ -30,9 +30,13 @@ namespace FondoXyz.Data.NewMigration
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    DocumentNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateBirth = table.Column<DateOnly>(type: "date", nullable: false),
+                    DateRegistered = table.Column<DateOnly>(type: "date", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -48,6 +52,27 @@ namespace FondoXyz.Data.NewMigration
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sedes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Rooms = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Capacity = table.Column<int>(type: "int", nullable: true),
+                    NumberAccomodation = table.Column<int>(type: "int", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cottage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ubication = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sedes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -156,6 +181,58 @@ namespace FondoXyz.Data.NewMigration
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Apartamentos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumberRooms = table.Column<int>(type: "int", nullable: false),
+                    NumberAccoodation = table.Column<int>(type: "int", nullable: false),
+                    CapacityMaximum = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SedeId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Apartamentos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Apartamentos_Sedes_SedeId",
+                        column: x => x.SedeId,
+                        principalTable: "Sedes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tarifas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Apartamento = table.Column<int>(type: "int", nullable: false),
+                    apartamentoId = table.Column<int>(type: "int", nullable: false),
+                    StartDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    EndDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    PriceNight = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tarifas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tarifas_Apartamentos_apartamentoId",
+                        column: x => x.apartamentoId,
+                        principalTable: "Apartamentos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Apartamentos_SedeId",
+                table: "Apartamentos",
+                column: "SedeId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -194,6 +271,11 @@ namespace FondoXyz.Data.NewMigration
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tarifas_apartamentoId",
+                table: "Tarifas",
+                column: "apartamentoId");
         }
 
         /// <inheritdoc />
@@ -215,10 +297,19 @@ namespace FondoXyz.Data.NewMigration
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Tarifas");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Apartamentos");
+
+            migrationBuilder.DropTable(
+                name: "Sedes");
         }
     }
 }

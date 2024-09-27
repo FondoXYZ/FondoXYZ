@@ -26,16 +26,19 @@ builder.Services.AddIdentity<User , IdentityRole>( //Yo editare la clase de el I
 )
 .AddEntityFrameworkStores<dbContext>()
 .AddDefaultTokenProviders(); // we save the token in the context
-//Servicio de newtonsoft 
-builder.Services.AddControllers()
-        .AddNewtonsoftJson(options =>
-            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+//Agregamos los servicios de las cookies //add the services of the cookies
+//builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme).AddCookie(IdentityConstants.ApplicationScheme);
 
 //Add the scooped of the folder services
-builder.Services.AddScoped<ISedesRepository, SedesRepository>();
+builder.Services.AddScoped<ISedesRepository, SedesRepository>(); 
+//add the logs
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -55,6 +58,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Register}/{action=Register}/{id?}");
+    pattern: "{controller=Account}/{action=Register}/{id?}");
 
 app.Run();

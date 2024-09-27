@@ -9,46 +9,72 @@
     <span class="tag">Registro Usuario</span>
     <form asp-action="Register" method="post" class="form-register">
         <div class="formDocument">
-            <label asp-for="NumberDocument" class="label"></label>
-            <input asp-for="NumberDocument" class="NDocument" id="documento" name="documento" required>
-            <span asp-validation-for="NumberDocument"></span>
+            <label asp-for="DocumentNumber" class="label"></label>
+            <input asp-for="DocumentNumber" class="NDocument" id="documento" required>
+            <span asp-validation-for="DocumentNumber" class="text-danger"></span>
         </div>
 
         <div class="fullname d-flex flex-column">
             <label asp-for="FullName" class="label"></label>
-            <input asp-for="FullName">
-            <span asp-validation-for="FullName"></span>
+            <input asp-for="FullName" id="fullname">
+            <span asp-validation-for="FullName" class="text-danger"></span>
         </div>
 
         <div class="fecha">
             <label asp-for="BirthDate" class="label"></label>
             <input asp-for="BirthDate" class="birth" type="date">
-            <span asp-validation-for="BirthDate"></span>
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
         </div>
 
         <div class="email">
             <label asp-for="Email" class="label"></label>
             <input asp-for="Email" class="emial">
-            <span  asp-validation-for="Email"></span>
+            <span  asp-validation-for="Email" class="text-danger"></span>
         </div>
 
         <div class="password">
             <label asp-for="Password" class="label"></label>
             <input asp-for="Password" class="password">
-            <span asp-validation-for="Password"></span>
+            <span asp-validation-for="Password" class="text-danger"></span>
+            @if(ViewBag.ErrorMessage != null){
+                <div class="alert alert-danger">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
         </div>
 
         <div class="confirmPassword">
             <label asp-for="ConfirmPassword" class="label"></label>
             <input asp-for="ConfirmPassword" class="confirmPassword">
-            <span asp-validation-for="ConfirmPassword"></span>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
         </div>
       <div class="enviar">
-            <button type="submit" class="btn btn-light">📩Enviar</button>
-            <button type="submit" class="btn btn-light">❌Cancelar</button>
+            <button type="submit" class="btn btn-dark" id="Register">Register</button>
+            <button type="reset" class="btn btn-light">❌Cancelar</button>
       </div>
+      @if(!ViewData.ModelState.IsValid){
+        <div>
+            @foreach( var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <div class="alert alert-danger">@error.ErrorMessage</div>
+            }
+        </div>
+      }
     </form>
 </div>
 @section Scripts{
-    @await Html.PartialAsync("_ValidationScriptsPartial")  @*Esto es para mostrar la validación de las vistas*@
-}
+    @await Html.PartialAsync("_ValidationScriptsPartial")  @*Esto es para mostrar la validación de las vistas}*@
+    } 
+
+@* <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const registerButton = document.getElementById("Register");
+        registerButton.addEventListener("click", function(event) {
+            // Lo use para detener el envio una vez haga click en el boton
+             event.preventDefault(); 
+            alert("Enviado");
+            // Puedes llamar a submit aquí si necesitas enviar el formulario después
+            // document.querySelector('.form-register').submit();
+        });
+    });
+</script> *@
